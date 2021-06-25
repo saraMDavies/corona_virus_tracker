@@ -1,5 +1,8 @@
 
-const DataVisualiser = function({selectedDate}) {
+const DataVisualiser = function({selectedDate, calculateVaccsMoreThanDay, vaccsMoreThanDay}) {
+
+    calculateVaccsMoreThanDay(selectedDate)
+
 
 
     return (
@@ -9,6 +12,7 @@ const DataVisualiser = function({selectedDate}) {
             <h2>{selectedDate.deathsDaily} deaths</h2>
             <h2>{selectedDate.firstVaccinationsDaily} first vaccinations</h2>
             <h2>{selectedDate.secondVaccinationsDaily} second vaccinations</h2>
+            <p>{vaccsMoreThanDay}</p>
         </div>
     );
 };

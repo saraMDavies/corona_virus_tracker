@@ -7,6 +7,7 @@ const DataContainer = function() {
 
     const [dataAPI, setDataAPI] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
+    const [vaccsMoreThanDay, setVaccsMoreThanDay] = useState(null);
 
 
     useEffect(() => {
@@ -25,13 +26,23 @@ const DataContainer = function() {
         setSelectedDate(day);
     };
 
+    const calculateVaccsMoreThanDay = function(day) {
+        let countAbove = 0;
+        for (let day in dataAPI) {
+            if (day.firstVaccinationsDaily > selectedDate.firstVaccinationsDaily) {
+                countAbove += 1;
+            }
+        };
+        setVaccsMoreThanDay(countAbove);
+       
+    };
 
 
 
     return (
         <div className="container">
             { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
-            { selectedDate? <DataVisualiser selectedDate={selectedDate}></DataVisualiser> : null}
+            { selectedDate? <DataVisualiser calculateVaccsMoreThanDay={calculateVaccsMoreThanDay} vaccsMoreThanDay={vaccsMoreThanDay} selectedDate={selectedDate}></DataVisualiser> : null}
         </div>
     );
 };
