@@ -1,3 +1,20 @@
+header {
+    background-color: dodgerblue;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > a {
+    padding-right: 100px;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
 .container {
     display: flex;
     justify-content: space-between;

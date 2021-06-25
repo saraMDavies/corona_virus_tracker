@@ -1,0 +1,10 @@
+
+
+.list-page {
+    padding-top: 50px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}

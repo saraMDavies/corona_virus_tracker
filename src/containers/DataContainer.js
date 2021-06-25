@@ -16,7 +16,7 @@ const DataContainer = function() {
 
 
     const fetchDataAPI = function () {
-        const dataAPI = fetch('https://api.coronavirus.data.gov.uk/v1/data')
+        fetch('https://api.coronavirus.data.gov.uk/v1/data')
             .then(result => result.json())
             .then(API => setDataAPI(API.data.splice(1,30)));
         
@@ -40,9 +40,15 @@ const DataContainer = function() {
 
 
     return (
-        <div className="container">
+        <div>
+            <header>
+                <h1>Last 30 days of corona virus data in UK</h1>
+                <a href='https://api.coronavirus.data.gov.uk/v1/data'>API link</a>
+            </header>
+            <body className="container">
             { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
             { selectedDate? <DataVisualiser calculateVaccsMoreThanDay={calculateVaccsMoreThanDay} vaccsMoreThanDay={vaccsMoreThanDay} selectedDate={selectedDate}></DataVisualiser> : null}
+            </body>
         </div>
     );
 };

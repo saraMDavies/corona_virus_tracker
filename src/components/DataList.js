@@ -1,4 +1,5 @@
 import ListItem from './ListItem';
+import './DataList.css';
 
 const DataList = function({data, onDateClick}) {
 
@@ -9,9 +10,9 @@ const DataList = function({data, onDateClick}) {
     });
 
     return (
-        <div>
+        <div className="list-page">
             <h2>Click a date to view stats</h2>
-            <ul>
+            <ul className="list">
                 {dataList}
             </ul>
         </div>
