@@ -26,9 +26,9 @@ const DataContainer = function() {
         setSelectedDate(day);
     };
 
-    const calculateVaccsMoreThanDay = function(day) {
+    const calculateVaccsMoreThanDay = function(date) {
         let countAbove = 0;
-        for (let day in dataAPI) {
+        for (let day of dataAPI) {
             if (day.firstVaccinationsDaily > selectedDate.firstVaccinationsDaily) {
                 countAbove += 1;
             }
