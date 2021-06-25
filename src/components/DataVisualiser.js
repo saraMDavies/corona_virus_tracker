@@ -1,5 +1,7 @@
 
 const DataVisualiser = function({selectedDate}) {
+
+
     return (
         <div>
             <h3>{selectedDate.date}</h3>
