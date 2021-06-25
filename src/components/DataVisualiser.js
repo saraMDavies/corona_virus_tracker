@@ -3,7 +3,26 @@ const DataVisualiser = function({selectedDate, calculateVaccsMoreThanDay, vaccsM
 
     calculateVaccsMoreThanDay(selectedDate)
 
+    const calulatePlacementFirstVaccsText = function() {
+        if (vaccsMoreThanDay) {
+            let lastDigit = (vaccsMoreThanDay+1).toString().split('').pop();
+            if (lastDigit === '1') {
+                return 'st';
+            }
+            else if (lastDigit === '2') {
+                return 'nd';
+            }
+            else if (lastDigit === '3') {
+                return 'rd'
+            }
+            else {
+                return 'th'
+            };
+        } 
+        
+    };
 
+    const placementText = calulatePlacementFirstVaccsText();
 
     return (
         <div>
@@ -11,8 +30,8 @@ const DataVisualiser = function({selectedDate, calculateVaccsMoreThanDay, vaccsM
             <h2>{selectedDate.casesDaily} cases</h2>
             <h2>{selectedDate.deathsDaily} deaths</h2>
             <h2>{selectedDate.firstVaccinationsDaily} first vaccinations</h2>
+            {vaccsMoreThanDay? <p>{vaccsMoreThanDay + 1}{placementText} highest number of first vaccines in the last 30 days</p> : null}
             <h2>{selectedDate.secondVaccinationsDaily} second vaccinations</h2>
-            <p>{vaccsMoreThanDay}</p>
         </div>
     );
 };
