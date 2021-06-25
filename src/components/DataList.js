@@ -10,7 +10,7 @@ const DataList = function({data, onDateClick}) {
 
     return (
         <div>
-            <h2>Date list:</h2>
+            <h2>Click a date to view stats</h2>
             <ul>
                 {dataList}
             </ul>
