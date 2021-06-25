@@ -1,5 +1,5 @@
 import './DataList.css';
-const DataList = function({data}) {
+const DataList = function({data, handleSelectedDate}) {
 
     const handleClick = function() {
         console.log('clicked');

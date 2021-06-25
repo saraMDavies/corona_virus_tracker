@@ -6,6 +6,7 @@ import './DataContainer.css';
 const DataContainer = function() {
 
     const [dataAPI, setDataAPI] = useState([]);
+    const [selectedDate, setSelectedDate] = useState({});
 
 
     useEffect(() => {
@@ -18,7 +19,10 @@ const DataContainer = function() {
             .then(result => result.json())
             .then(API => setDataAPI(API.data.splice(0,30)));
         
-       
+    };
+
+    const handleSelectedDate = function(date) {
+        setSelectedDate(date);
     };
 
 
@@ -26,7 +30,7 @@ const DataContainer = function() {
 
     return (
         <div className="container">
-            { dataAPI? <DataList data={dataAPI}></DataList> : null}
+            { dataAPI? <DataList data={dataAPI} handleSelectedDate={handleSelectedDate}></DataList> : null}
             { dataAPI? <DataVisualiser></DataVisualiser> : null}
         </div>
     );
