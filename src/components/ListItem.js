@@ -1,4 +1,4 @@
-
+import './ListItem.css';
 const ListItem = function({day, onDateClick}) {
 
     const handleClick = function() {
@@ -6,7 +6,7 @@ const ListItem = function({day, onDateClick}) {
       };
 
     return (
-        <li onClick={handleClick}>{day.date}</li>
+        <li className="list-item" onClick={handleClick}>{day.date}</li>
     );
 
 };

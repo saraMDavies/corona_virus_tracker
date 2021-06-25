@@ -5,21 +5,25 @@ const DataVisualiser = function({selectedDate, calculateVaccsMoreThanDay, vaccsM
 
     const calulatePlacementFirstVaccsText = function() {
         if (vaccsMoreThanDay) {
-            let lastDigit = (vaccsMoreThanDay+1).toString().split('').pop();
-            if (lastDigit === '1') {
-                return 'st';
-            }
-            else if (lastDigit === '2') {
-                return 'nd';
-            }
-            else if (lastDigit === '3') {
-                return 'rd'
+            if (vaccsMoreThanDay === 11 || vaccsMoreThanDay === 12 || vaccsMoreThanDay === 13) {
+                return 'th';
             }
             else {
-                return 'th'
+                let lastDigit = (vaccsMoreThanDay+1).toString().split('').pop();
+                if (lastDigit === '1') {
+                    return 'st';
+                }
+                else if (lastDigit === '2') {
+                    return 'nd';
+                }
+                else if (lastDigit === '3') {
+                    return 'rd'
+                }
+                else {
+                    return 'th'
+                };
             };
-        } 
-        
+        };
     };
 
     const placementText = calulatePlacementFirstVaccsText();

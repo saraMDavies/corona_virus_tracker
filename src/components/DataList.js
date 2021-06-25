@@ -1,5 +1,3 @@
-import { getByDisplayValue } from '@testing-library/react';
-import './DataList.css';
 import ListItem from './ListItem';
 
 const DataList = function({data, onDateClick}) {
