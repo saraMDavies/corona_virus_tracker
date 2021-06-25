@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import DataVisualiser from "../components/DataVisualiser";
 
 const DataContainer = function() {
 
@@ -22,7 +23,10 @@ const DataContainer = function() {
 
 
     return (
-        <h2>Container</h2>
+        <div>
+            <h2>Container</h2>
+            { dataAPI? <DataVisualiser data={dataAPI}></DataVisualiser> : null}
+        </div>
     );
 };
 
