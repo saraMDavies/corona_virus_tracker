@@ -15,6 +15,11 @@
     height: 50px;
 }
 
+.image-icon-small {
+    width: 20px;
+    height: 20px;
+}
+
 .vacc-panel {
     display: flex;
 }
