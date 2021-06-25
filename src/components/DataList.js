@@ -1,12 +1,12 @@
 import './DataList.css';
-const DataList = function({data, handleSelectedDate}) {
+import ListItem from './ListItem';
 
-    const handleClick = function() {
-        console.log('clicked');
-    };
+const DataList = function({data, onDateClick}) {
+
+    
 
     const dataList = data.map((day, index) => {
-        return <li className="list-item" key={index} onClick={handleClick}>{day.date}</li>
+        return <ListItem key={index} day={day} onDateClick={onDateClick}></ListItem>
     });
 
     return (

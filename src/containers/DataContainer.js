@@ -6,7 +6,7 @@ import './DataContainer.css';
 const DataContainer = function() {
 
     const [dataAPI, setDataAPI] = useState([]);
-    const [selectedDate, setSelectedDate] = useState({});
+    const [selectedDate, setSelectedDate] = useState(null);
 
 
     useEffect(() => {
@@ -21,8 +21,8 @@ const DataContainer = function() {
         
     };
 
-    const handleSelectedDate = function(date) {
-        setSelectedDate(date);
+    const onDateClick = function(day) {
+        setSelectedDate(day);
     };
 
 
@@ -30,8 +30,8 @@ const DataContainer = function() {
 
     return (
         <div className="container">
-            { dataAPI? <DataList data={dataAPI} handleSelectedDate={handleSelectedDate}></DataList> : null}
-            { dataAPI? <DataVisualiser></DataVisualiser> : null}
+            { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
+            { dataAPI? <DataVisualiser selectedDate={selectedDate}></DataVisualiser> : null}
         </div>
     );
 };
