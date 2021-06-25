@@ -1,14 +1,7 @@
 
-const DataVisualiser = function({data}) {
-
-    const dataList = data.map((day, index) => {
-        return <li key="index">{day.date}</li>
-    });
-
+const DataVisualiser = function() {
     return (
-        <ul>
-            {dataList}
-        </ul>
+        <h3>Visualiser</h3>
     );
 };
 

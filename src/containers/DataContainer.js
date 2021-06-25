@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import DataVisualiser from "../components/DataVisualiser";
+import DataList from "../components/DataList";
 
 const DataContainer = function() {
 
@@ -25,7 +25,7 @@ const DataContainer = function() {
     return (
         <div>
             <h2>Container</h2>
-            { dataAPI? <DataVisualiser data={dataAPI}></DataVisualiser> : null}
+            { dataAPI? <DataList data={dataAPI}></DataList> : null}
         </div>
     );
 };
