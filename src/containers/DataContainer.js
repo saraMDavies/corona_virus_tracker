@@ -31,7 +31,7 @@ const DataContainer = function() {
     return (
         <div className="container">
             { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
-            { dataAPI? <DataVisualiser selectedDate={selectedDate}></DataVisualiser> : null}
+            { selectedDate? <DataVisualiser selectedDate={selectedDate}></DataVisualiser> : null}
         </div>
     );
 };
