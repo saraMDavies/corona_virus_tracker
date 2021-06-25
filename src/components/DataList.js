@@ -1,5 +1,4 @@
-import DataVisualiser from "./DataVisualiser";
-
+import './DataList.css';
 const DataList = function({data}) {
 
     const handleClick = function() {
@@ -7,15 +6,15 @@ const DataList = function({data}) {
     };
 
     const dataList = data.map((day, index) => {
-        return <li key={index} onClick={handleClick}>{day.date}</li>
+        return <li className="list-item" key={index} onClick={handleClick}>{day.date}</li>
     });
 
     return (
         <div>
+            <h2>Date list:</h2>
             <ul>
                 {dataList}
             </ul>
-            <DataVisualiser></DataVisualiser>
         </div>
         
     );

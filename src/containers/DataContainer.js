@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import DataList from "../components/DataList";
+import DataVisualiser from "../components/DataVisualiser";
+import './DataContainer.css';
 
 const DataContainer = function() {
 
@@ -14,7 +16,7 @@ const DataContainer = function() {
     const fetchDataAPI = function () {
         const dataAPI = fetch('https://api.coronavirus.data.gov.uk/v1/data')
             .then(result => result.json())
-            .then(API => setDataAPI(API.data));
+            .then(API => setDataAPI(API.data.splice(0,30)));
         
        
     };
@@ -23,9 +25,9 @@ const DataContainer = function() {
 
 
     return (
-        <div>
-            <h2>Container</h2>
+        <div className="container">
             { dataAPI? <DataList data={dataAPI}></DataList> : null}
+            { dataAPI? <DataVisualiser></DataVisualiser> : null}
         </div>
     );
 };
