@@ -49,11 +49,11 @@ const DataVisualiser = function({selectedDate, calculateVaccsMoreThanDay, vaccsM
             </div>
             <div className="first-panel">
                 <img className="image-icon" src='https://image.freepik.com/free-vector/cute-virus-cartoon-character-posing-style_313669-117.jpg'></img>
-                <h3>{selectedDate.casesDaily} cases</h3>
+                <h3>{selectedDate.newCasesByPublishDate} cases</h3>
             </div>
             <div className="first-panel">
                 <img className="image-icon"src='https://image.freepik.com/free-vector/cute-death-cartoon-character_257245-58.jpg'></img>
-                <h3>{selectedDate.deathsDaily} deaths</h3>
+                <h3>{selectedDate.newDeaths28DaysByPublishDate} deaths</h3>
             </div>
                 <div className="vacc-panel">
                     <img className="image-icon" src='https://media.istockphoto.com/vectors/smiling-cartoon-character-mascot-medical-syringe-vaccine-thumb-up-vector-id1285359800?k=6&m=1285359800&s=170667a&w=0&h=DuhcsiqE4JkzlhbB7xMIBe4z63K2cUYlzcNpCo0MGh8='></img>
