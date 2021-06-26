@@ -42,7 +42,7 @@ const DataContainer = function() {
     return (
         <div>
             <header>
-                <h1>Last 30 days of corona virus data in UK</h1>
+                <h1>Last 30 days of coronavirus data in UK</h1>
                 <a href='https://api.coronavirus.data.gov.uk/v1/data'>API link</a>
             </header>
             <body className="container">
