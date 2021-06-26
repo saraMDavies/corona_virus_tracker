@@ -19,7 +19,7 @@ const DataContainer = function() {
     const fetchDataAPI = function () {
         fetch('https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=England;areaType=nation&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22,%22cumCasesByPublishDate%22:%22cumCasesByPublishDate%22,%22newDeaths28DaysByPublishDate%22:%22newDeaths28DaysByPublishDate%22,%22cumDeaths28DaysByPublishDate%22:%22cumDeaths28DaysByPublishDate%22}')
             .then(result => result.json())
-            .then(API => setDataAPI(API.data.splice(1,30)));
+            .then(API => setDataAPI(API.data.splice(1,100)));
         
     };
 
@@ -54,7 +54,7 @@ const DataContainer = function() {
     return (
         <div>
             <header>
-                <h1>Last 30 days of coronavirus data in England</h1>
+                <h1>Last 100 days of coronavirus data in England</h1>
                 <a href='https://api.coronavirus.data.gov.uk/v1/data'>API link</a>
             </header>
             <body className="container">
