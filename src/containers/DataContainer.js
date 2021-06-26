@@ -29,7 +29,6 @@ const DataContainer = function() {
             return index_of_date === index + 7;
         });
         setWeekBeforeSelectedDate(oneWeekAgo);
-        console.log(oneWeekAgo);
     };
 
     const calculateVaccsMoreThanDay = function(date) {
@@ -44,9 +43,10 @@ const DataContainer = function() {
     };
 
     const compareWeekBeforeCases = function() {
-        const percentageIncrease = -100 + (selectedDate.newCasesByPublishDate / weekBeforeSelectedDate[0].newCasesByPublishDate) * 100
-        console.log(selectedDate.newCasesByPublishDate);
-        return parseInt(percentageIncrease)
+        if(weekBeforeSelectedDate[0]) {
+            const percentageIncrease = -100 + (selectedDate.newCasesByPublishDate / weekBeforeSelectedDate[0].newCasesByPublishDate) * 100
+            return parseInt(percentageIncrease)
+        };     
     };
 
 
