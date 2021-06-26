@@ -1,8 +1,8 @@
 import './ListItem.css';
-const ListItem = function({day, onDateClick}) {
+const ListItem = function({day, index, onDateClick}) {
 
     const handleClick = function() {
-        onDateClick(day);
+        onDateClick(day, index);
       };
 
     return (

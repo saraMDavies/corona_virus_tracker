@@ -6,7 +6,7 @@ const DataList = function({data, onDateClick}) {
     
 
     const dataList = data.map((day, index) => {
-        return <ListItem key={index} day={day} onDateClick={onDateClick}></ListItem>
+        return <ListItem index={index} day={day} onDateClick={onDateClick}></ListItem>
     });
 
     return (

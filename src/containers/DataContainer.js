@@ -8,6 +8,7 @@ const DataContainer = function() {
     const [dataAPI, setDataAPI] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
     const [vaccsMoreThanDay, setVaccsMoreThanDay] = useState(null);
+    const [weekBeforeSelectedDate, setWeekBeforeSelectedDate] = useState(null);
 
 
     useEffect(() => {
@@ -22,8 +23,13 @@ const DataContainer = function() {
         
     };
 
-    const onDateClick = function(day) {
+    const onDateClick = function(day, index) {
         setSelectedDate(day);
+        const oneWeekAgo = dataAPI.filter((date, index_of_date) => {
+            return index_of_date === index + 7;
+        });
+        setWeekBeforeSelectedDate(oneWeekAgo);
+        console.log(oneWeekAgo);
     };
 
     const calculateVaccsMoreThanDay = function(date) {
@@ -42,7 +48,7 @@ const DataContainer = function() {
     return (
         <div>
             <header>
-                <h1>Last 30 days of coronavirus data in UK</h1>
+                <h1>Last 30 days of coronavirus data in England</h1>
                 <a href='https://api.coronavirus.data.gov.uk/v1/data'>API link</a>
             </header>
             <body className="container">
