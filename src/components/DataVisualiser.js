@@ -1,19 +1,31 @@
 import './DataVisualiser.css';
 
 
-const DataVisualiser = function({selectedDate, compareWeekBeforeCases}) {
+const DataVisualiser = function({selectedDate, compareWeekBeforeCases, compareWeekBeforeDeaths}) {
 
     
-    const percentageIncreaseLastWeek = compareWeekBeforeCases();
+    const percentageIncreaseCasesLastWeek = compareWeekBeforeCases();
+    const percentageIncreaseDeathsLastWeek = compareWeekBeforeDeaths();
+
+    console.log(percentageIncreaseDeathsLastWeek);
 
     const setpercentCasesText = function() {
-        if (percentageIncreaseLastWeek > 0) {
+        if (percentageIncreaseCasesLastWeek > 0) {
             return "up";
         }
         return "down";
     };
 
     const percentCasesText = setpercentCasesText();
+
+    const setpercentDeathsText = function() {
+        if (percentageIncreaseDeathsLastWeek > 0) {
+            return "up";
+        }
+        return "down";
+    };
+
+    const percentDeathsText = setpercentDeathsText();
 
 
     return (
@@ -26,11 +38,12 @@ const DataVisualiser = function({selectedDate, compareWeekBeforeCases}) {
                 <img className="image-icon" src='https://image.freepik.com/free-vector/cute-virus-cartoon-character-posing-style_313669-117.jpg'></img>
                 <h3>{selectedDate.newCasesByPublishDate} cases</h3>
             </div>
-            { percentageIncreaseLastWeek? <p>Cases {percentCasesText} {percentageIncreaseLastWeek}% on this day last week.</p> : null}
+            { percentageIncreaseCasesLastWeek? <p>Cases {percentCasesText} {Math.abs(percentageIncreaseCasesLastWeek)}% on this day last week.</p> : 'Data not available'}
             <div className="first-panel">
                 <img className="image-icon"src='https://image.freepik.com/free-vector/cute-death-cartoon-character_257245-58.jpg'></img>
                 <h3>{selectedDate.newDeaths28DaysByPublishDate} deaths</h3>
             </div>
+            { percentageIncreaseDeathsLastWeek? <p>Deaths {percentDeathsText} {Math.abs(percentageIncreaseDeathsLastWeek)}% on this day last week.</p> : 'Data not available'}
             
         </div>
     );

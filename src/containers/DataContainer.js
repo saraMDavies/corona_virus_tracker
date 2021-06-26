@@ -7,7 +7,6 @@ const DataContainer = function() {
 
     const [dataAPI, setDataAPI] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
-    const [vaccsMoreThanDay, setVaccsMoreThanDay] = useState(null);
     const [weekBeforeSelectedDate, setWeekBeforeSelectedDate] = useState(null);
 
 
@@ -19,7 +18,7 @@ const DataContainer = function() {
     const fetchDataAPI = function () {
         fetch('https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=England;areaType=nation&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22,%22cumCasesByPublishDate%22:%22cumCasesByPublishDate%22,%22newDeaths28DaysByPublishDate%22:%22newDeaths28DaysByPublishDate%22,%22cumDeaths28DaysByPublishDate%22:%22cumDeaths28DaysByPublishDate%22}')
             .then(result => result.json())
-            .then(API => setDataAPI(API.data.splice(1,100)));
+            .then(API => setDataAPI(API.data.splice(0,100)));
         
     };
 
@@ -31,21 +30,20 @@ const DataContainer = function() {
         setWeekBeforeSelectedDate(oneWeekAgo);
     };
 
-    const calculateVaccsMoreThanDay = function(date) {
-        let countAbove = 0;
-        for (let day of dataAPI) {
-            if (day.firstVaccinationsDaily > selectedDate.firstVaccinationsDaily) {
-                countAbove += 1;
-            }
-        };
-        setVaccsMoreThanDay(countAbove);
-       
-    };
+    
 
     const compareWeekBeforeCases = function() {
         if(weekBeforeSelectedDate[0]) {
             const percentageIncrease = -100 + (selectedDate.newCasesByPublishDate / weekBeforeSelectedDate[0].newCasesByPublishDate) * 100
             return parseInt(percentageIncrease)
+        };     
+    };
+
+    const compareWeekBeforeDeaths = function() {
+        if(weekBeforeSelectedDate[0]) {
+            const percentageIncrease = -100 + (selectedDate.newDeaths28DaysByPublishDate / weekBeforeSelectedDate[0].newDeaths28DaysByPublishDate) * 100
+            // console.log(Math.abs(parseInt(percentageIncrease))
+            return parseInt(percentageIncrease);
         };     
     };
 
@@ -59,7 +57,7 @@ const DataContainer = function() {
             </header>
             <body className="container">
             { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
-            { selectedDate? <DataVisualiser compareWeekBeforeCases={compareWeekBeforeCases} calculateVaccsMoreThanDay={calculateVaccsMoreThanDay} vaccsMoreThanDay={vaccsMoreThanDay} selectedDate={selectedDate}></DataVisualiser> : null}
+            { selectedDate? <DataVisualiser compareWeekBeforeCases={compareWeekBeforeCases} compareWeekBeforeDeaths={compareWeekBeforeDeaths} selectedDate={selectedDate}></DataVisualiser> : null}
             </body>
         </div>
     );
