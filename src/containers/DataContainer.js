@@ -43,6 +43,12 @@ const DataContainer = function() {
        
     };
 
+    const compareWeekBeforeCases = function() {
+        const percentageIncrease = -100 + (selectedDate.newCasesByPublishDate / weekBeforeSelectedDate[0].newCasesByPublishDate) * 100
+        console.log(selectedDate.newCasesByPublishDate);
+        return parseInt(percentageIncrease)
+    };
+
 
 
     return (
@@ -53,7 +59,7 @@ const DataContainer = function() {
             </header>
             <body className="container">
             { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
-            { selectedDate? <DataVisualiser calculateVaccsMoreThanDay={calculateVaccsMoreThanDay} vaccsMoreThanDay={vaccsMoreThanDay} selectedDate={selectedDate}></DataVisualiser> : null}
+            { selectedDate? <DataVisualiser compareWeekBeforeCases={compareWeekBeforeCases} calculateVaccsMoreThanDay={calculateVaccsMoreThanDay} vaccsMoreThanDay={vaccsMoreThanDay} selectedDate={selectedDate}></DataVisualiser> : null}
             </body>
         </div>
     );
