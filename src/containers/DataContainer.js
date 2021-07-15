@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import DataList from "../components/DataList";
 import DataVisualiser from "../components/DataVisualiser";
 import './DataContainer.css';
+import Charts from "../components/Charts";
 
 const DataContainer = function() {
 
@@ -55,7 +56,10 @@ const DataContainer = function() {
                 <a target="_blank" href='https://api.coronavirus.data.gov.uk/v1/data?filters=areaName=Scotland;areaType=nation&structure={%22date%22:%22date%22,%22name%22:%22areaName%22,%22code%22:%22areaCode%22,%22newCasesByPublishDate%22:%22newCasesByPublishDate%22,%22cumCasesByPublishDate%22:%22cumCasesByPublishDate%22,%22newDeaths28DaysByPublishDate%22:%22newDeaths28DaysByPublishDate%22,%22cumDeaths28DaysByPublishDate%22:%22cumDeaths28DaysByPublishDate%22}'>API link</a>
             </header>
             <body className="container">
-            { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
+                <div className="top-container">
+                    <Charts data={dataAPI}></Charts>
+                                { dataAPI? <DataList data={dataAPI} onDateClick={onDateClick}></DataList> : null}
+                </div>
             { selectedDate? <DataVisualiser compareWeekBeforeCases={compareWeekBeforeCases} compareWeekBeforeDeaths={compareWeekBeforeDeaths} selectedDate={selectedDate}></DataVisualiser> : null}
             </body>
         </div>
