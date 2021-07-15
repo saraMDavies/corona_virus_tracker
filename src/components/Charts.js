@@ -3,7 +3,7 @@ import './Charts.css';
 
 const Charts = ({data}) => {
 
-    const graphData = () => {
+    const graphDataCases = () => {
         const graphData = data.map((day) => {
             return [day.date, day.newCasesByPublishDate]
         });
@@ -11,33 +11,68 @@ const Charts = ({data}) => {
         graphData.reverse();
         return graphData;
     };
+
+    const graphDataDeaths = () => {
+        const graphData = data.map((day) => {
+            return [day.date, day.newDeaths28DaysByPublishDate]
+        });
+        graphData.push(['Date', 'Cases'])
+        graphData.reverse();
+        return graphData;
+    };
+
     
     
 
 
 
     return (
-        <div>
+        <div id="graphs">
             
-            <div style={{ display: 'flex', maxWidth: 9000 }}>
+            <div className="graph" style={{ display: 'flex', maxWidth: 900 }}>
               <Chart
                 width={400}
                 height={300}
                 chartType="ColumnChart"
                 loader={<div>Loading Chart</div>}
-                data={graphData()}
+                data={graphDataCases()}
                 options={{
                   title: 'Daily Coronavirus cases - Sccotland',
-                  chartArea: { width: '200%' },
+                  chartArea: { width: '100%' },
                   hAxis: {
-            title: 'Total Cases by Day',
+            title: 'Date',
             minValue: 0,
                   },
                   vAxis: {
-            title: 'City',
+            title: 'Total cases',
+            minVlaue: 0
                   },
                 }}
-                legendToggle
+               
+              />
+              
+            </div>
+
+            <div className="graph" style={{ display: 'flex', maxWidth: 900 }}>
+              <Chart
+                width={400}
+                height={300}
+                chartType="ColumnChart"
+                loader={<div>Loading Chart</div>}
+                data={graphDataDeaths()}
+                options={{
+                  title: 'Daily Coronavirus deaths - Sccotland',
+                  chartArea: { width: '100%' },
+                  hAxis: {
+            title: 'Date',
+            minValue: 0,
+                  },
+                  vAxis: {
+            title: 'Total deaths',
+            minVlaue: 0
+                  },
+                }}
+               
               />
               
             </div>
