@@ -40,7 +40,7 @@ const DataVisualiser = function({selectedDate, compareWeekBeforeCases, compareWe
             </div>
             { percentageIncreaseCasesLastWeek? <p>Cases {percentCasesText} {Math.abs(percentageIncreaseCasesLastWeek)}% on this day last week.</p> : 'Data not available'}
             <div className="first-panel">
-                <img className="image-icon"src='https://image.freepik.com/free-vector/cute-death-cartoon-character_257245-58.jpg'></img>
+                <img className="image-icon"src='https://icon-library.com/images/dead-icon/dead-icon-17.jpg'></img>
                 <h3>{selectedDate.newDeaths28DaysByPublishDate} deaths</h3>
             </div>
             { percentageIncreaseDeathsLastWeek? <p>Deaths {percentDeathsText} {Math.abs(percentageIncreaseDeathsLastWeek)}% on this day last week.</p> : 'Data not available'}
