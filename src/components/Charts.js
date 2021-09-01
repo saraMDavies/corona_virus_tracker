@@ -36,7 +36,10 @@ const Charts = ({data}) => {
                 chartType="ColumnChart"
                 data={graphDataCases()}
                 options={{
-                  title: 'Daily Coronavirus cases - Scotland',
+                  title: 'Daily coronavirus cases',
+                  titleTextStyle: {
+                    fontSize: 22
+                  },
                   hAxis: {
                     title: 'Date',
                   },
@@ -60,7 +63,10 @@ const Charts = ({data}) => {
                 chartType="ColumnChart"
                 data={graphDataDeaths()}
                 options={{
-                  title: 'Daily Coronavirus deaths - Scotland',
+                  title: 'Daily coronavirus deaths',
+                  titleTextStyle: {
+                    fontSize: 22
+                  },
                   vAxis: {
                     title: 'Total deaths'
                 },
