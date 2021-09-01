@@ -31,8 +31,8 @@ const Charts = ({data}) => {
             
             <div className="graph" style={{ display: 'flex' }}>
               <Chart
-                // width='100%'
                 height={300}
+                width={600}
                 chartType="ColumnChart"
                 data={graphDataCases()}
                 options={{
@@ -55,8 +55,8 @@ const Charts = ({data}) => {
 
             <div className="graph" style={{ display: 'flex' }}>
               <Chart
-                // width="200%"
                 height={300}
+                width={600}
                 chartType="ColumnChart"
                 data={graphDataDeaths()}
                 options={{
