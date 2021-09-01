@@ -29,51 +29,50 @@ const Charts = ({data}) => {
     return (
         <div id="graphs">
             
-            <div className="graph" style={{ display: 'flex', maxWidth: 900 }}>
+            <div className="graph" style={{ display: 'flex' }}>
               <Chart
-                width={400}
+                // width='100%'
                 height={300}
                 chartType="ColumnChart"
-                loader={<div>Loading Chart</div>}
                 data={graphDataCases()}
                 options={{
-                  title: 'Daily Coronavirus cases - Sccotland',
-                  chartArea: { width: '100%' },
+                  title: 'Daily Coronavirus cases - Scotland',
                   hAxis: {
-            title: 'Date',
-            minValue: 0,
+                    title: 'Date',
                   },
                   vAxis: {
-            title: 'Total cases',
-            minVlaue: 0
+                    title: 'Total cases',
                   },
+                  legend: {
+                    position: 'none'
+                  }
+
                 }}
                
               />
               
             </div>
 
-            <div className="graph" style={{ display: 'flex', maxWidth: 900 }}>
+            <div className="graph" style={{ display: 'flex' }}>
               <Chart
-                width={400}
+                // width="200%"
                 height={300}
                 chartType="ColumnChart"
-                loader={<div>Loading Chart</div>}
                 data={graphDataDeaths()}
                 options={{
-                  title: 'Daily Coronavirus deaths - Sccotland',
-                  chartArea: { width: '100%' },
-                  hAxis: {
-            title: 'Date',
-            minValue: 0,
-                  },
+                  title: 'Daily Coronavirus deaths - Scotland',
                   vAxis: {
-            title: 'Total deaths',
-            minVlaue: 0
+                    title: 'Total deaths'
+                },
+                  hAxis: {
+                      title: 'Date',
                   },
+                  legend: {
+                    position: 'none'
+                  }
                 }}
                
-              />
+              ></Chart>
               
             </div>
             
